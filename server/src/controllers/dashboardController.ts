@@ -15,28 +15,28 @@ export const getDashboardMetrics = async (
                     stockQuantity: 'desc',
                 },
             });
-            const saleSummary = await prisma.salesSummary.findMany({
-                take: 5,
+            const salesSummary = await prisma.salesSummary.findMany({
+               
                 orderBy: {
                     date: 'desc',
                 },
             });
             const purchaseSummary = await prisma.purchaseSummary.findMany({
-                take: 5,
+                
                 orderBy: { 
                     date: 'desc',
                 },
             });
             const expenseSummary = await prisma.expenseSummary.findMany({
-                take: 5,
+                
                 orderBy: {
                     date: 'desc',
                 },
             });
             const expenseByCategorySummaryRaw = await prisma.expenseByCategory.findMany({
-                take: 5,
+                
                 orderBy: {
-                    category: 'asc', 
+                    category: 'desc', 
                 },
             });
             const expenseByCategorySummary = expenseByCategorySummaryRaw.map( (item) => ({
@@ -46,10 +46,11 @@ export const getDashboardMetrics = async (
             );
             // Convert amount to string for consistency in response
             // Return the data as a JSON response
+        
 
             res.json({
                 popularProducts,
-                saleSummary,
+                salesSummary,
                 purchaseSummary,
                 expenseSummary,
                 expenseByCategorySummary,
