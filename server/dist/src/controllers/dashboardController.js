@@ -21,28 +21,24 @@ const getDashboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, func
                 stockQuantity: 'desc',
             },
         });
-        const saleSummary = yield prisma.salesSummary.findMany({
-            take: 5,
+        const salesSummary = yield prisma.salesSummary.findMany({
             orderBy: {
                 date: 'desc',
             },
         });
         const purchaseSummary = yield prisma.purchaseSummary.findMany({
-            take: 5,
             orderBy: {
                 date: 'desc',
             },
         });
         const expenseSummary = yield prisma.expenseSummary.findMany({
-            take: 5,
             orderBy: {
                 date: 'desc',
             },
         });
         const expenseByCategorySummaryRaw = yield prisma.expenseByCategory.findMany({
-            take: 5,
             orderBy: {
-                category: 'asc',
+                category: 'desc',
             },
         });
         const expenseByCategorySummary = expenseByCategorySummaryRaw.map((item) => (Object.assign(Object.assign({}, item), { amount: item.amount.toString() })));
@@ -50,7 +46,7 @@ const getDashboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, func
         // Return the data as a JSON response
         res.json({
             popularProducts,
-            saleSummary,
+            salesSummary,
             purchaseSummary,
             expenseSummary,
             expenseByCategorySummary,
