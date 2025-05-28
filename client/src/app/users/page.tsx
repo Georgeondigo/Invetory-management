@@ -9,7 +9,7 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 const columns: GridColDef[] = [
   { field: "name", headerName: "Name", flex: 1, minWidth: 150 },
   { field: "email", headerName: "Email", flex: 1, minWidth: 200 },
-  { field: "userId", headerName: "ID", flex: 1, minWidth: 150 },
+  { field: "userId", headerName: "ID", flex: 1, minWidth: 100 },
 ];
 
 function Users() {
@@ -47,7 +47,7 @@ function Users() {
       </div>
 
       {/* USER LIST */}
-      <div className="h-[calc(100vh-260px)] w-full">
+      <div className="flex flex-col w-full">
         <DataGrid
           rows={users}
           columns={columns}
