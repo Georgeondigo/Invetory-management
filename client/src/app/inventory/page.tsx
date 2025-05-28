@@ -6,27 +6,28 @@ import { useGetProductsQuery } from "../state/api";
 import { GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
-  { field: "productId", headerName: "ID", width: 90 },
-  { field: "name", headerName: "Product Name", width: 200 },
+  { field: "productId", headerName: "ID",minWidth: 80, flex: 1, },
+  { field: "name", headerName: "Product Name", minWidth: 120, flex: 1, },
   {
     field: "price",
     headerName: "Price",
     type: "number",
-    width: 110,
+   minWidth: 90, flex: 1,
     valueGetter: (value, row) => `Kes ${row.price}`,
   },
   {
     field: "rating",
     headerName: "Rating",
     type: "number",
-    width: 110,
+    minWidth: 100, flex: 1,
     valueGetter: (value, row) => (row.rating ? row.rating : "N/A"),
   },
   {
     field: "stockQuantity",
     headerName: "Stock Quantity",
     type: "number",
-    width: 150,
+    minWidth: 120,
+    flex: 1,
   },
 ];
 
@@ -46,7 +47,7 @@ const Inventory = () => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <Header name="Inventory" />
       <DataGrid
         rows={products}
