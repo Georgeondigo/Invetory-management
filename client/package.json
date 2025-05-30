@@ -16,6 +16,8 @@
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.9.0",
     "dotenv": "^16.5.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "numeral": "^2.0.6",
